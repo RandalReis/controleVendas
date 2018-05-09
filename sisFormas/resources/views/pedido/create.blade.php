@@ -66,11 +66,15 @@
            <input type="text" name="obs" class="form-control" placeholder="Observação">
         </div>
       </div>
-      <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-        <div class="form-group">
-           <label for="idclientes">Cliente</label>
-           <input type="number" name="idcliente" class="form-control" placeholder="Código do Cliente">
-        </div>
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+          <div class="form-group">
+             <label>Cliente</label>
+             <select name="idclientes" class="form-control">
+             @foreach ($clientes as $cat)
+             <option value="{{$cat->idclientes}}">{{$cat->nome}}</option>
+             @endforeach
+             </select>
+          </div>
       </div>
      
       <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">

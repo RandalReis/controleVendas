@@ -105,39 +105,91 @@ return [
     | Font Awesome. A string instead of an array represents a header in sidebar
     | layout. The 'can' is a filter on Laravel's built in Gate functionality.
     |
+    'Testes',
+        [
+            'text'        => 'Teste',
+            'icon'        => 'money',
+            'submenu' => [
+                [
+                    'text' => 'Admin',
+                    'url'  => 'admin/ui',
+                    'icon' => 'user',
+                ]
+            ]
     */
 
     'menu' => [
         'Clientes',
         [
             'text' => 'Clientes',
-            'url'  => 'clientes',
             'icon'  => 'users',
+            'submenu' => [
+                [
+                    'text'  =>  'Lista',
+                    'url'   =>  'clientes',
+                    'icon'  =>  'list',
+                ],
+                [
+                    'text'  =>  'Cadastrar',
+                    'url'   =>  'clientes/create',
+                    'icon'  =>  'save',
+                ]
+            ]
             
             
         ],
         'Pedidos',
         [
-            'text'        => 'Pedidos',
+            'text'     =>  'Pedidos',
+            'icon'     =>  'cart-arrow-down',
+            'submenu'  =>  [
+                [
+            'text'        => 'Lista',
             'url'         => 'pedido',
-            'icon'        => 'cart-arrow-down',
-            
-           
+            'icon'        => 'list',
+                ],
+                [
+                    'text'  =>  'Cadastrar',
+                    'url'   =>  'pedido/create',
+                    'icon'  =>  'save',   
+                ]
+            ]
         ],
         'Gastos',
         [
-            'text'        => 'Gastos',
-            'url'         => 'admin/gastos',
-            'icon'        => 'edit',
+            'text'     =>  'Gastos',
+            'icon'     =>  'edit',
+            'submenu'  =>  [
+                [
+            'text'        => 'Lista',
+            'url'         => 'gastos',
+            'icon'        => 'list',
+                ],
+                [
+                    'text'  =>  'Cadastrar',
+                    'url'   =>  'gastos/create',
+                    'icon'  =>  'save',   
+                ]
+            ]
             
            
         ],
         'Rendimentos',
         [
-            'text'        => 'Rendimentos',
+            'text'     =>  'Rendimentos',
+            'icon'     =>  'money',
+            'submenu'  =>  [
+                [
+            'text'        => 'Lista',
             'url'         => 'rendimentos',
-            'icon'        => 'money',
-            
+            'icon'        => 'list',
+                ],
+                [
+                    'text'  =>  'Cadastrar',
+                    'url'   =>  'rendimentos/create',
+                    'icon'  =>  'save',   
+                ]
+            ]
            
         ],
         

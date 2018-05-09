@@ -24,16 +24,16 @@ class PedidoController extends Controller
            ->join('clientes as cli','pe.idclientes','=','cli.idclientes')        
            ->select('pe.idclientes','cli.nome')
            ->where('pe.descricao','LIKE','%'.$query.'%')
-           ->orderBy('pe.idpedido','desc')
-           
-           ->paginate(7);
-           return view('pedido.index',["pedido"=>$pedido,"searchText"=>$query]);       
+           ->orderBy('pe.idpedido','desc');
+          
+           return view('pedido.index',["pedido"=>$pedido,"searchText"=>$query]); 
+                 
         }  
     }  
     public function create()
     {
-        
-        return view("pedido.create");
+        $clientes=DB::table('clientes')->get();
+        return view("pedido.create",["clientes"=>$clientes]);
     }  
        public function store (PedidoFormRequest $request)
        {
@@ -45,7 +45,7 @@ class PedidoController extends Controller
         $pedido->condPag=$request->get('condPag');
         $pedido->mes=$request->get('mes');
         $pedido->obs=$request->get('obs');
-        $pedido->idcliente=$request->get('idcliente');
+        $pedido->idclientes=$request->get('idclientes');
         $pedido->save();
         return Redirect::to('pedido');
 
@@ -53,12 +53,14 @@ class PedidoController extends Controller
        }
        public function show($id)
        {
-           $pedido=DB::table('pedido as pe')
-           ->join('clientes as cli','pe.idclientes','=','cli.idclientes')        
-           ->where('pe.pedido','=',$id) 
-           ->first();
-           return view("pedido.show",["pedido"=>$pedido,"clientes"=>$clientes]);
+           return view("pedido.show",["pedido"=>Pedido::findOrFail($id)]);
         }
+        public function edit($id)
+    {
+        $pedido=Pedido::findOrFail($id);
+        $clientes=DB::table('clientes')->get();
+        return view("pedido.edit",["pedido"=>$pedido,"clientes"=>$clientes]);
+    }
     public function destroy($id)
     {
         $pedido=Pedido::findOrFail($id);

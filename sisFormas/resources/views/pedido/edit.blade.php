@@ -58,10 +58,20 @@
             	<label for="total">Mês</label>
             	<input type="mes" name="total" class="form-control" value="{{$pedido->mes}}" placeholder="mes">
             </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
           <div class="form-group">
-            	<label for="total">Mês</label>
-            	<input type="number" name="total" class="form-control" value="{{$pedido->obs}}" placeholder="obs">
-            </div>
+             <label>Cliente</label>
+             <select name="idclientes" class="form-control">
+                @foreach ($clientes as $cat)
+                     @if ($cat->idclientes==$pedido->idpedido)  
+                     <option value="{{$cat->idclientes}}" selected>{{$cat->nome}}</option>    
+                     @else
+                     <option value="{{$cat->idclientes}}">{{$cat->nome}}</option>
+                     @endif
+                @endforeach     
+             </select>
+          </div>
+     </div>
             
      </div>
             <div class="form-group">
