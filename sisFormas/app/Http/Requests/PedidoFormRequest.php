@@ -31,6 +31,7 @@ class PedidoFormRequest extends FormRequest
             'mes'=>'required',
             'obs'=>'max:100',
             'idclientes'=>'required',
+            
         ];
     }
 }

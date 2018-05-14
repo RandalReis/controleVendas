@@ -14,6 +14,7 @@ class Pedido extends Model
         'descricao',
         'quantidade',
         'valorPar',
+        'total',
         'condPag',
         'mes',
         'obs',

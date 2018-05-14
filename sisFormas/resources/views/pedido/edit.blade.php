@@ -64,9 +64,9 @@
              <select name="idclientes" class="form-control">
                 @foreach ($clientes as $cat)
                      @if ($cat->idclientes==$pedido->idpedido)  
-                     <option value="{{$cat->idclientes}}" selected>{{$cat->nome}}</option>    
+                     <option value="{{$cat->idclientes}}" selected>{{$cat->idclientes}}</option>    
                      @else
-                     <option value="{{$cat->idclientes}}">{{$cat->nome}}</option>
+                     <option value="{{$cat->idclientes}}">{{$cat->idclientes}}</option>
                      @endif
                 @endforeach     
              </select>

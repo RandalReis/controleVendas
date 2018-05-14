@@ -1,8 +1,11 @@
-@extends ('layouts.admin')
-@section ('Conteudo')
+@extends ('adminlte::page')
+@section ('title','Rendimentos')
+@section ('content_header')
+@stop
+@section('content')
   <div class="row">
      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Nova categoria</h3>
+        <h3>Nova Entrada</h3>
         @if (count($errors)>0)
         <div class="alert" alert-danger>
             <ul>
@@ -13,16 +16,16 @@
         </div>
         @endif  
 
-        {!!Form::open(array('url'=>'almacen/categoria','method'=>'POST','autocomplete'=>'off')) !!}
+        {!!Form::open(array('url'=>'rendimentos','method'=>'POST','autocomplete'=>'off')) !!}
         {{Form::token()}}
         <div class="form-group">
-           <label for="nome">Nome</label>
-           <input type="text" name="nome" class="form-control" placeholder="Nome...">
+           <label for="nome">Mês</label>
+           <input type="text" name="mes" class="form-control" placeholder="Mês">
         </div>
 
         <div class="form-group">
-           <label for="descricao">Descrição</label>
-           <input type="text" name="descricao" class="form-control" placeholder="Descrição...">
+           <label for="total">Total</label>
+           <input type="number" name="total" class="form-control" placeholder="Total">
         </div>
         <div class="form-group">
            <button class="btn btn-primary" type="submit">Salvar</button>
@@ -31,4 +34,4 @@
         {!!Form::close()!!}
      </div>
   </div>
-@endsection
+@stop

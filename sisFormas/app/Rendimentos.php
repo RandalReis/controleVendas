@@ -12,8 +12,6 @@ class Rendimentos extends Model
 
     protected $fillable =[
          'mes',
-         'total',
-         'idgastos',
-         'idpedido'
+         'total'
     ];
 }

@@ -25,6 +25,8 @@ Route::get('pedido','PedidoController@index')->name('pedido/index');
 Route::resource('gastos','GastosController');
 Route::get('gastos','GastosController@index')->name('gasto/index');
 
+Route::resource('rendimentos','RendimentosController');
+Route::get('rendimentos','RendimentosController@index')->name('rendimentos/index');
 
 Route::get('/teste/{id}','ClientesController@teste');
 Route::get('/home', 'HomeController@index')->name('home');

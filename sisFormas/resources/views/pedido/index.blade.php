@@ -43,7 +43,6 @@
 			</table>
 			<input type="button" class="btn btn-warning" name="imprimir" value="Imprimir" onclick="window.print();">
 		</div>
-		{{$pedido->render()}}
 	</div>
 </div>
 

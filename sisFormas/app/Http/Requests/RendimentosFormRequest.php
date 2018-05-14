@@ -13,7 +13,7 @@ class RendimentosFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,8 +26,7 @@ class RendimentosFormRequest extends FormRequest
         return [
             'mes'=>'required',
             'total'=>'required',
-            'idgastos'=>'required',
-            'idpedido'=>'required',
+            
         ];
     }
 }

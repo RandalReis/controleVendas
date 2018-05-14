@@ -71,7 +71,7 @@
              <label>Cliente</label>
              <select name="idclientes" class="form-control">
              @foreach ($clientes as $cat)
-             <option value="{{$cat->idclientes}}">{{$cat->nome}}</option>
+             <option value="{{$cat->idclientes}}">{{$cat->idclientes}}</option>
              @endforeach
              </select>
           </div>

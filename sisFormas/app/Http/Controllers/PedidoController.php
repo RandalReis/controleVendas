@@ -21,11 +21,14 @@ class PedidoController extends Controller
        {
            $query=trim($request->get('searchText'));
            $pedido=DB::table('pedido as pe')
-           ->join('clientes as cli','pe.idclientes','=','cli.idclientes')        
-           ->select('pe.idclientes','cli.nome')
+           ->join('clientes as cli','cli.idclientes','=','pe.idclientes')        
+        //    ->select('pe.idclientes','cli.idclientes')
            ->where('pe.descricao','LIKE','%'.$query.'%')
-           ->orderBy('pe.idpedido','desc');
-          
+           ->orderBy('pe.idpedido','desc')
+           ->get();
+
+        //    return response()->json($pedido);
+            
            return view('pedido.index',["pedido"=>$pedido,"searchText"=>$query]); 
                  
         }  
@@ -64,7 +67,7 @@ class PedidoController extends Controller
     public function destroy($id)
     {
         $pedido=Pedido::findOrFail($id);
-        $pedido->update();
+        $pedido->delete();
         return Redirect::to('pedido');
     }
 }
